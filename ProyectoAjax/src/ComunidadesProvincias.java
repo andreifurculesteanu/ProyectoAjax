@@ -59,28 +59,38 @@ public class ComunidadesProvincias extends HttpServlet {
     	// Comprobar si la petición es mediante Ajax
     	Boolean esAjax;
         esAjax="XMLHttpRequest".equalsIgnoreCase(request.getHeader("X-Requested-With")); // Cabecera X-Requested-With
-    
+        
+        
+        //si la llamada es por Ajax
         if(esAjax) {
+        	//Recogemos comunidad que esta seleccionada
         	String comunidad = request.getParameter("comunidad");
         	
+        	//String que recoge el value(provincias) de la key(comunidades)
         	String prov = "";
         	
+        	//recorremos el mapa para ver si la comunidad seleccionada coincide con algun value de mapaComunidades
         	for (String key : mapaComunidades.keySet()){
+        		//si la comunidad seleccionada coincide con algun valor de mapaComunidades
         		if (comunidad.equals(key)) {
+        			//asignamos el valor al string antes declarado
         			prov = mapaComunidades.get(key);
         		}
         	}
         	
+        	//spliteamos prov 
         	String provincias[] = prov.split("-");
         	
+        	//generamos la respuesta para pasarla al jsp con ajax
+        	//abrimos select
         	String respuesta ="<select id='provincia' size='5'> \n";
-        	
+        	//agregamos opciones
         	for (int i = 0; i < provincias.length; i++) {
         		respuesta += "<option value=' " + provincias[i] + " ' > " + provincias[i]  + "</option> \n";
         	}
-        	
+        	//cerramos select
         	respuesta += "</select>";
-        	out.println(respuesta);
+        	out.println(respuesta); //pasamos respuesta al jsp con ajax
         }
     
     }

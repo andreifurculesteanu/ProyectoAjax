@@ -11,23 +11,18 @@
 		
 		var datos = document.getElementById("comunidad").value;
 		
-		var xmlhttp;  // objeto XMLHttpRequest
-	       if (window.XMLHttpRequest) {  // para IE7+, Firefox, Chrome, Opera, Safari
-	           xmlhttp = new XMLHttpRequest();
-	       } else {  // para IE6, IE5
-	          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	       }
+		var xmlhttp = new XMLHttpRequest();;  // objeto XMLHttpRequest
 		
 	    xmlhttp.onreadystatechange = function() {
 	    	// si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
 	       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	    	   var respuesta = xmlhttp.responseText;
-
+	    	   document.getElementById("spanProv").innerHTML = respuesta;
 	    	   
 	    	   
 	       }
 	    }
-	    xmlhttp.open("GET","CompruebaUsuario?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
+	    xmlhttp.open("GET","ProyectoAjax?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
 	    xmlhttp.setRequestHeader("X-Requested-With", "xmlhttprequest");  // establece la cabecera HTTP necesaria
 	    xmlhttp.send();  // lanza la solicitud
 	}
@@ -41,7 +36,7 @@
 	
 	<h1> Comunidades Autónomas de España </h1>
 	
-	
+	Comunidades autónomas:
 	<select id="comunidad" size="5">
 	  <option value="Andalucia">Andalucia</option>
 	  <option value="Aragon">Asturias</option>
@@ -60,6 +55,11 @@
 	  <option value="Pais Vasco">Pais Vasco</option>
 	  <option value="La Rioja">La Rioja</option>
 	</select>
+	
+	</br>
+	
+	Provincias:
+	<span id="spanProv"></span>
 
 </body>
 </html>
