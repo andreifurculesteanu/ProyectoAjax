@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CominidadesProvincias
  */
-@WebServlet("/CominidadesProvincias")
+@WebServlet("/ComunidadesProvincias")
 public class ComunidadesProvincias extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -89,7 +89,7 @@ public class ComunidadesProvincias extends HttpServlet {
         		respuesta += "<option value=' " + provincias[i] + " ' > " + provincias[i]  + "</option> \n";
         	}
         	//cerramos select
-        	respuesta += "</select>";
+        	respuesta="</select>";
         	out.println(respuesta); //pasamos respuesta al jsp con ajax
         }
     

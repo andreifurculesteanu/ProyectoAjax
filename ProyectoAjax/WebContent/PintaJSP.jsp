@@ -9,8 +9,8 @@
 <script type="text/javascript">
 	function dameProvincias(){
 		
-		var datos = document.getElementById("comunidad").value;
-		var xmlhttp = new XMLHttpRequest();;  // objeto XMLHttpRequest
+		var datos ="comunidad="+ document.getElementById("comunidad").value;
+		var xmlhttp = new XMLHttpRequest();  // objeto XMLHttpRequest
 		
 	    xmlhttp.onreadystatechange = function() {
 	    	// si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
@@ -20,7 +20,7 @@
 	    	   document.getElementById("spanProv").innerHTML = respuesta;
 	       }
 	    }
-	    xmlhttp.open("GET","ProyectoAjax?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
+	    xmlhttp.open("GET","ComunidadesProvincias?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
 	    xmlhttp.setRequestHeader("X-Requested-With", "xmlhttprequest");  // establece la cabecera HTTP necesaria
 	    xmlhttp.send();  // lanza la solicitud
 	}
