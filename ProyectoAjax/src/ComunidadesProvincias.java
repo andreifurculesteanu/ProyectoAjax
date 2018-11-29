@@ -83,7 +83,7 @@ public class ComunidadesProvincias extends HttpServlet {
         	
         	//generamos la respuesta para pasarla al jsp con ajax
         	//abrimos select
-        	String respuesta ="<select id='provincia' size='5'> \n";
+        	String respuesta ="<select id='provincia' size='1'> \n";
         	//agregamos opciones
         	for (int i = 0; i < provincias.length; i++) {
         		respuesta += "<option value=' " + provincias[i] + " ' > " + provincias[i]  + "</option> \n";

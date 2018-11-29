@@ -10,16 +10,14 @@
 	function dameProvincias(){
 		
 		var datos = document.getElementById("comunidad").value;
-		
 		var xmlhttp = new XMLHttpRequest();;  // objeto XMLHttpRequest
 		
 	    xmlhttp.onreadystatechange = function() {
 	    	// si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
 	       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	    	   var respuesta = xmlhttp.responseText;
+	    	   document.write(respuesta);
 	    	   document.getElementById("spanProv").innerHTML = respuesta;
-	    	   
-	    	   
 	       }
 	    }
 	    xmlhttp.open("GET","ProyectoAjax?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
@@ -37,8 +35,8 @@
 	<h1> Comunidades Autónomas de España </h1>
 	
 	Comunidades autónomas:
-	<select id="comunidad" size="5">
-	  <option value="Andalucia">Andalucia</option>
+	<select id="comunidad" size="1" onChange="dameProvincias();">
+	  <option value="Andalucia" selected>Andalucia</option>
 	  <option value="Aragon">Asturias</option>
 	  <option value="Baleares">Baleares</option>
 	  <option value="Canarias">Canarias</option>
