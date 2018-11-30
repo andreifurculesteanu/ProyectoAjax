@@ -86,14 +86,16 @@ public class ComunidadesProvincias extends HttpServlet {
         	String respuesta ="<select id='provincia' size='1'> \n";
         	//agregamos opciones
         	for (int i = 0; i < provincias.length; i++) {
-        		respuesta += "<option value=' " + provincias[i] + " ' > " + provincias[i]  + "</option> \n";
+        		respuesta += "<option value=' " + provincias[i] + " '> " + provincias[i]  + "</option> \n";
         	}
         	//cerramos select
-        	respuesta="</select>";
+        	respuesta +="</select>";
         	out.println(respuesta); //pasamos respuesta al jsp con ajax
+        } else {
+        	out.println("Este servlet solo se puede invocar por Ajax");
         }
     
-    }
+    } 
     
     
 

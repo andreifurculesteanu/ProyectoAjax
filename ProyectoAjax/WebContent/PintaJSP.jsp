@@ -13,10 +13,9 @@
 		var xmlhttp = new XMLHttpRequest();  // objeto XMLHttpRequest
 		
 	    xmlhttp.onreadystatechange = function() {
-	    	// si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
+	    	//si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
 	       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	    	   var respuesta = xmlhttp.responseText;
-	    	   document.write(respuesta);
 	    	   document.getElementById("spanProv").innerHTML = respuesta;
 	       }
 	    }
@@ -57,7 +56,7 @@
 	</br>
 	
 	Provincias:
-	<span id="spanProv"></span>
+	<span id="spanProv"> </span>
 
 </body>
 </html>
